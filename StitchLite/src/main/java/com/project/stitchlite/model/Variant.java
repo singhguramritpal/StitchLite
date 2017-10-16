@@ -2,6 +2,7 @@ package com.project.stitchlite.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,10 +13,10 @@ import org.hibernate.annotations.SQLInsert;
 
 @Entity
 @Table(name="variant")
-@SQLInsert( sql="INSERT INTO variant(size, color, sku, quantity, price, date_created,"
-		+ "date_updated) VALUES (?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE size=VALUES(size),"
-		+ "color=VALUES(color), sku=VALUES(sku), quantity=VALUES(quantity), price=VALUES(price),"
-		+ "date_created=VALUES(date_created), date_updated=VALUES(date_updated)")
+//@SQLInsert( sql="INSERT INTO variant(size, color, sku, quantity, price, date_created,"
+//		+ "date_updated) VALUES (?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE size=VALUES(size),"
+//		+ "color=VALUES(color), sku=VALUES(sku), quantity=VALUES(quantity), price=VALUES(price),"
+//		+ "date_created=VALUES(date_created), date_updated=VALUES(date_updated)")
 public class Variant {
 	
 	@Id
@@ -25,6 +26,7 @@ public class Variant {
 	private String size;
 	private String color;
 	
+//	@Column(unique=true)
 	private String sku;
 	private Integer quantity;
 	
