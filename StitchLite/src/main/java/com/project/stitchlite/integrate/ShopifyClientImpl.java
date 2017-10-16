@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.project.stitchlite.model.ShopifyProductsListObject;
-import com.project.stitchlite.model.Product;
-import com.project.stitchlite.model.Variant;
+import com.project.stitchlite.model.ShopifyProduct;
+import com.project.stitchlite.model.ShopifyVariant;
 
 @Component
 public class ShopifyClientImpl implements ShopifyClient{
@@ -28,7 +28,7 @@ public class ShopifyClientImpl implements ShopifyClient{
 	private String apiKey = "ca7371a56a00e99fa1f689d67a788efc";
 	private String apiPassword = "5d0c9f8cacab1f2b33a84305986b4957";
 	
-	public List<Product> getProducts() {
+	public List<ShopifyProduct> getProducts() {
 		RestTemplate restTemplate = new RestTemplate();
 		String url = "https://stitchobia.myshopify.com/admin/products.json";
 		
@@ -46,27 +46,27 @@ public class ShopifyClientImpl implements ShopifyClient{
 
 		// Making a call to the Shopify API
 		ResponseEntity<ShopifyProductsListObject> response1 = restTemplate.exchange(url, HttpMethod.GET, entity, ShopifyProductsListObject.class);
-		List<Product> products = response1.getBody().getProducts();
+		List<ShopifyProduct> products = response1.getBody().getProducts();
 		
-		for(Product product:products){
-			System.out.println(product.getTitle());
-			System.out.println(product.getId());
-			for(Variant v:product.getVariants()){
-				System.out.println(v.getColor() + " :Color");
-				System.out.println(v.getId() + " :id");
-				System.out.println(v.getPrice() + " :Price");
-				System.out.println(v.getQuantity()+ " :Quantity");
-				System.out.println(v.getSize()+ " :Size");
-				System.out.println(v.getSku() + " :SKU");
-				System.out.println(v.getDateCreated() + " :Date Created");
-				System.out.println(v.getDateUpdated() + " :Date Updated");
-				System.out.println();
-				System.out.println();
-			}
-			System.out.println();
-			System.out.println("-----------");
-			System.out.println();
-		}
+//		for(Product product:products){
+//			System.out.println(product.getTitle());
+//			System.out.println(product.getId());
+//			for(Variant v:product.getVariants()){
+//				System.out.println(v.getColor() + " :Color");
+//				System.out.println(v.getId() + " :id");
+//				System.out.println(v.getPrice() + " :Price");
+//				System.out.println(v.getQuantity()+ " :Quantity");
+//				System.out.println(v.getSize()+ " :Size");
+//				System.out.println(v.getSku() + " :SKU");
+//				System.out.println(v.getDateCreated() + " :Date Created");
+//				System.out.println(v.getDateUpdated() + " :Date Updated");
+//				System.out.println();
+//				System.out.println();
+//			}
+//			System.out.println();
+//			System.out.println("-----------");
+//			System.out.println();
+//		}
 		
 		return products;
 	}

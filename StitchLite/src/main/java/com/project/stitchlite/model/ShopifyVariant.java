@@ -2,6 +2,7 @@ package com.project.stitchlite.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,36 +11,29 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.SQLInsert;
 
-@Entity
-@Table(name="variant")
-@SQLInsert( sql="INSERT INTO variant(size, color, sku, quantity, price, date_created,"
-		+ "date_updated) VALUES (?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE size=VALUES(size),"
-		+ "color=VALUES(color), sku=VALUES(sku), quantity=VALUES(quantity), price=VALUES(price),"
-		+ "date_created=VALUES(date_created), date_updated=VALUES(date_updated)")
-public class Variant {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(value = { "id" })
+public class ShopifyVariant {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
 	
+	@JsonProperty("option1")
 	private String size;
+	@JsonProperty("option2")
 	private String color;
 	
 	private String sku;
+	@JsonProperty("inventory_quantity")
 	private Integer quantity;
 	
 	private Double price;
 	
+	@JsonProperty("created_at")
 	private Date dateCreated;
+	@JsonProperty("updated_at")
 	private Date dateUpdated;
 	
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getSize() {
 		return size;
 	}
@@ -82,4 +76,7 @@ public class Variant {
 	public void setDateUpdated(Date dateUpdated) {
 		this.dateUpdated = dateUpdated;
 	}
+	
+	
+
 }

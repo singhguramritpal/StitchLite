@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties
 public class VendProduct {
 	
+	@JsonProperty("base_name")
 	private String name;
 	private Boolean active;
 	private String sku;
