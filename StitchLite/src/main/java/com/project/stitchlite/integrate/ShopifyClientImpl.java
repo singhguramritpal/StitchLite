@@ -25,8 +25,8 @@ public class ShopifyClientImpl implements ShopifyClient{
 //	@Autowired
 //	private RestTemplate restTemplate;
 	
-	private String apiKey = "ca7371a56a00e99fa1f689d67a788efc";
-	private String apiPassword = "5d0c9f8cacab1f2b33a84305986b4957";
+	private String apiKey = "API-KEY";
+	private String apiPassword = "API-PASSWORD";
 	
 	public List<ShopifyProduct> getProducts() {
 		RestTemplate restTemplate = new RestTemplate();

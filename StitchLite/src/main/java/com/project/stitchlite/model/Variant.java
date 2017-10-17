@@ -2,11 +2,12 @@ package com.project.stitchlite.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.SQLInsert;
@@ -16,12 +17,17 @@ import org.hibernate.annotations.SQLInsert;
 //@SQLInsert( sql="INSERT INTO variant(size, color, sku, quantity, price, date_created,"
 //		+ "date_updated) VALUES (?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE size=VALUES(size),"
 //		+ "color=VALUES(color), sku=VALUES(sku), quantity=VALUES(quantity), price=VALUES(price),"
-//		+ "date_created=VALUES(date_created), date_updated=VALUES(date_updated)")
+//		+ "date_created=VALUES(dateCreated), date_updated=VALUES(dateUpdated)")
 public class Variant {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
+	@ManyToOne
+    @JoinColumn(name = "product_id")
+	private Product product;
+	
 	
 	private String size;
 	private String color;
@@ -83,5 +89,11 @@ public class Variant {
 	}
 	public void setDateUpdated(Date dateUpdated) {
 		this.dateUpdated = dateUpdated;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProductId(Product product) {
+		this.product = product;
 	}
 }

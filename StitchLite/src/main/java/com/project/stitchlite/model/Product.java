@@ -26,7 +26,7 @@ public class Product {
 	private String title;
 	
 	@Embedded
-	@OneToMany(cascade = {CascadeType.ALL,CascadeType.PERSIST,CascadeType.MERGE}, orphanRemoval=true)
+	@OneToMany(cascade = {CascadeType.ALL,CascadeType.PERSIST,CascadeType.MERGE}, mappedBy="product", orphanRemoval=true)
 	private List<Variant> variants;
 	
 	public int getId() {
