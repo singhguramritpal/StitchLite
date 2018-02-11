@@ -25,8 +25,8 @@ public class ShopifyClientImpl implements ShopifyClient{
 //	@Autowired
 //	private RestTemplate restTemplate;
 	
-	private String apiKey = "API-KEY";
-	private String apiPassword = "API-PASSWORD";
+	private String apiKey = "ca7371a56a00e99fa1f689d67a788efc";
+	private String apiPassword = "5d0c9f8cacab1f2b33a84305986b4957";
 	
 	public List<ShopifyProduct> getProducts() {
 		RestTemplate restTemplate = new RestTemplate();
@@ -48,25 +48,6 @@ public class ShopifyClientImpl implements ShopifyClient{
 		ResponseEntity<ShopifyProductsListObject> response1 = restTemplate.exchange(url, HttpMethod.GET, entity, ShopifyProductsListObject.class);
 		List<ShopifyProduct> products = response1.getBody().getProducts();
 		
-//		for(Product product:products){
-//			System.out.println(product.getTitle());
-//			System.out.println(product.getId());
-//			for(Variant v:product.getVariants()){
-//				System.out.println(v.getColor() + " :Color");
-//				System.out.println(v.getId() + " :id");
-//				System.out.println(v.getPrice() + " :Price");
-//				System.out.println(v.getQuantity()+ " :Quantity");
-//				System.out.println(v.getSize()+ " :Size");
-//				System.out.println(v.getSku() + " :SKU");
-//				System.out.println(v.getDateCreated() + " :Date Created");
-//				System.out.println(v.getDateUpdated() + " :Date Updated");
-//				System.out.println();
-//				System.out.println();
-//			}
-//			System.out.println();
-//			System.out.println("-----------");
-//			System.out.println();
-//		}
 		
 		return products;
 	}

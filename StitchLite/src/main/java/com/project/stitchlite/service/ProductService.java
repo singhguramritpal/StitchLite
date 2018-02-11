@@ -15,9 +15,9 @@ public interface ProductService {
 	
 	public List<Product> findProductByTitle(String title);
 
-	void SaveMultipleProducts(List<Product> products);
+	void saveMultipleProducts(List<Product> products);
 
-	void SaveProduct(Product product);
+	void saveProduct(Product product);
 
 	Product findProductById(int id);
 	

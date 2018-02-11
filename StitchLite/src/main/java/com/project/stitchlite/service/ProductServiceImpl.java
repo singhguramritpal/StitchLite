@@ -36,7 +36,9 @@ public class ProductServiceImpl implements ProductService {
 	
 	public List<Product> getProductsFromShopify() {
 		List<ShopifyProduct> shopifyProducts = shopifyClient.getProducts();
+		
 		List<Product> products = productShopifyBuilder.buildListOfProducts(shopifyProducts);
+		
 		return products;
 	}
 	
@@ -48,12 +50,15 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
-	public void SaveMultipleProducts(List<Product> products){
-		productDao.saveMultipleProducts(products);
+	public void saveMultipleProducts(List<Product> products){
+//		productDao.saveMultipleProducts(products);
+		for(Product product:products){
+			saveProduct(product);
+		}
 	}
 	
 	@Override
-	public void SaveProduct(Product product){
+	public void saveProduct(Product product){
 		productDao.saveProduct(product);
 	}
 	

@@ -6,11 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.SQLInsert;
 
 @Entity
 @Table(name="variant")
@@ -22,12 +18,7 @@ public class Variant {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	
-	@ManyToOne
-    @JoinColumn(name = "product_id")
-	private Product product;
-	
+	private int id;	
 	
 	private String size;
 	private String color;
@@ -89,11 +80,5 @@ public class Variant {
 	}
 	public void setDateUpdated(Date dateUpdated) {
 		this.dateUpdated = dateUpdated;
-	}
-	public Product getProduct() {
-		return product;
-	}
-	public void setProductId(Product product) {
-		this.product = product;
 	}
 }

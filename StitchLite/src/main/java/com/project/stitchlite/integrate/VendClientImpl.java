@@ -18,7 +18,7 @@ import com.project.stitchlite.model.VendProductsListObject;
 @Component
 public class VendClientImpl implements VendClient{
 	
-	String token = "ACCESS-TOKEN";
+	String token = "KiQSsELLtoGzmctdi0DRu_OnxVLf8H37QlRba8WN";
 
 	public List<VendProduct> getProducts() {
 		

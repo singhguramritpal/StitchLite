@@ -29,7 +29,7 @@ public class ProductController {
 			products.addAll(productService.getProductsFromVend());
 		}
 		
-		productService.SaveMultipleProducts(products);
+		productService.saveMultipleProducts(products);
 		
 		return products;
 		
